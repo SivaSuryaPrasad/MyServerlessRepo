@@ -1,0 +1,69 @@
+# version: 0.2
+
+# phases:
+#   install:
+#     runtime-versions:
+#       nodejs: 12.x
+#     commands:
+#       - npm install
+#       - npm install -g serverless
+
+#   post_build:
+#     commands:
+#       – serverless deploy –stage $env
+  
+#   artifacts:
+#     files:
+#       – serverless.yml
+
+version: 0.2
+
+phases:
+  install:
+    #If you use the Ubuntu standard image 2.0 or later, you must specify runtime-versions.
+    #If you specify runtime-versions and use an image other than Ubuntu standard image 2.0, the build fails.
+    runtime-versions:
+        nodejs: 12.x
+      # name: version
+      # name: version
+    commands:
+      - mkdir ./serverless-package
+      - chmod +x aws-profile-setup.sh
+      - npm install
+      - npm install -g serverless
+  pre_build:
+    commands:
+        
+
+  build:
+    commands:
+      - ls 
+      - . ./aws-profile-setup.sh
+      - sls package --package serverless-package
+      - sls deploy
+      - ls serverless-package
+      - sls deploy --package serverless-package
+
+    
+  post_build:
+    commands:
+      # - command
+#reports:
+  #report-name-or-arn:
+    #files:
+      # - location
+      # - location
+    #base-directory: location
+    #discard-paths: yes
+    #file-format: JunitXml | CucumberJson
+#artifacts:
+#  type: zip 
+#  files:
+ #    - template.yaml
+ #   - outputteststackery.yaml
+  #name: $(date +%Y-%m-%d)
+  #discard-paths: yes
+  #base-directory: location
+#cache:
+  #paths:
+    # - paths
