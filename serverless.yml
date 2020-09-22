@@ -14,7 +14,6 @@ custom:
 provider:
   name: aws
   runtime: nodejs12.x
-  cfnRole: arn:aws:iam::168948837935:role/masterrole
   region: ${self:custom.region}
   memorySize: ${self:custom.memorySize}
 
