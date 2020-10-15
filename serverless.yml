@@ -1,4 +1,4 @@
-service: testskillfully
+service: TFService
 
 #package:
 #  exclude:
@@ -18,10 +18,10 @@ provider:
   memorySize: ${self:custom.memorySize}
 
 functions:
-  testlambdaprodserverless:
+  tflamndafunction:
     handler: handler.mylamfun
     events:
       - http:
-          path: myapipathgetskill
+          path: myapipath
           method: GET
 
