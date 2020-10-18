@@ -4,7 +4,7 @@
 set -x
 
 CREDS=$(aws sts assume-role \
---role-arn arn:aws:iam::168948837935:role/masterrole \
+--role-$role_arn \
 --role-session-name $(date '+%Y%m%d%H%M%S%3N') \
 --duration-seconds 3600 \
 --query '[Credentials.AccessKeyId,Credentials.SecretAccessKey,Credentials.SessionToken]' \
